@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
   <meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  >
 
   <title>YouTubeファンサイト</title>
 
+
   <style>
+
     * {
       box-sizing: border-box;
     }
+
 
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 80px;
     }
 
+
     body {
       margin: 0;
       background: #ffffff;
       color: #111111;
-      font-family: "Meiryo UI", "メイリオ", Meiryo, sans-serif;
+
+      font-family:
+        "Meiryo UI",
+        "メイリオ",
+        Meiryo,
+        sans-serif;
+
       line-height: 1.6;
     }
+
 
     button,
     input,
     select {
       font-family: inherit;
     }
+
 
     a {
       color: inherit;
@@ -46,7 +62,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+
       background: #ffffff;
+
       border-bottom: 3px solid #111111;
 
       display: flex;
@@ -56,11 +74,13 @@
       padding: 11px 14px;
     }
 
+
     .site-title {
       font-size: 21px;
       font-weight: 700;
       letter-spacing: 0.03em;
     }
+
 
     .menu-button {
       width: 44px;
@@ -68,21 +88,26 @@
 
       border: 2px solid #111111;
       border-radius: 10px;
+
       background: #ffffff;
 
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       gap: 5px;
 
       cursor: pointer;
     }
 
+
     .menu-button span {
       width: 22px;
       height: 3px;
+
       background: #111111;
+
       border-radius: 3px;
     }
 
@@ -102,9 +127,11 @@
       display: none;
     }
 
+
     .menu-overlay.active {
       display: block;
     }
+
 
     .side-menu {
       position: fixed;
@@ -127,9 +154,11 @@
       transition: right 0.25s ease;
     }
 
+
     .side-menu.active {
       right: 0;
     }
+
 
     .menu-header {
       display: flex;
@@ -141,10 +170,12 @@
       border-bottom: 3px solid #111111;
     }
 
+
     .menu-header h2 {
       margin: 0;
       font-size: 20px;
     }
+
 
     .menu-close {
       width: 40px;
@@ -169,6 +200,7 @@
       border-bottom: 1px solid #dddddd;
     }
 
+
     .menu-main-button {
       width: 100%;
 
@@ -189,15 +221,18 @@
       cursor: pointer;
     }
 
+
     .menu-main-button:hover {
       background: #f7f7f7;
     }
+
 
     .menu-main-left {
       display: flex;
       align-items: center;
       gap: 7px;
     }
+
 
     .menu-chevron {
       font-size: 19px;
@@ -206,17 +241,47 @@
       transition: transform 0.2s ease;
     }
 
+
     .menu-main-button.open .menu-chevron {
       transform: rotate(180deg);
     }
+
 
     .menu-content {
       display: none;
       padding: 0 14px 14px;
     }
 
+
     .menu-content.open {
       display: block;
+    }
+
+
+    /* =========================
+       関連サイト
+    ========================= */
+
+    .menu-link {
+      display: block;
+
+      width: 100%;
+
+      padding: 11px 10px;
+
+      border: 1px solid #dddddd;
+      border-radius: 8px;
+
+      margin-bottom: 7px;
+
+      background: #ffffff;
+
+      font-size: 14px;
+    }
+
+
+    .menu-link:last-child {
+      margin-bottom: 0;
     }
 
 
@@ -229,6 +294,7 @@
       gap: 8px;
       margin-bottom: 10px;
     }
+
 
     .notification-all button {
       flex: 1;
@@ -245,10 +311,12 @@
       cursor: pointer;
     }
 
+
     .notification-all button:hover {
       background: #111111;
       color: #ffffff;
     }
+
 
     .notification-setting {
       display: flex;
@@ -265,12 +333,14 @@
       font-size: 14px;
     }
 
+
     .notification-setting input {
       width: 18px;
       height: 18px;
 
       accent-color: #c40000;
     }
+
 
     .notification-note {
       font-size: 11px;
@@ -279,6 +349,7 @@
       margin: 10px 2px 0;
     }
 
+
     .goal-settings {
       display: none;
 
@@ -286,38 +357,49 @@
       padding: 8px;
 
       border-left: 3px solid #c40000;
+
       background: #fafafa;
     }
+
 
     .goal-settings.open {
       display: block;
     }
 
+
     .goal-title {
       font-size: 12px;
       font-weight: 700;
+
       color: #c40000;
 
       margin-bottom: 7px;
     }
 
+
     .goal-list {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
+
       gap: 5px;
     }
+
 
     .goal-item {
       display: flex;
       align-items: center;
+
       gap: 3px;
 
       font-size: 11px;
     }
 
+
     .goal-item input {
       accent-color: #c40000;
     }
+
 
     .custom-goal {
       margin-top: 9px;
@@ -325,6 +407,7 @@
       display: flex;
       gap: 5px;
     }
+
 
     .custom-goal input {
       flex: 1;
@@ -339,9 +422,12 @@
       font-size: 12px;
     }
 
+
     .custom-goal button {
       border: 2px solid #c40000;
+
       color: #c40000;
+
       background: #ffffff;
 
       border-radius: 7px;
@@ -349,102 +435,8 @@
       padding: 0 9px;
 
       font-size: 11px;
+
       font-weight: 700;
-    }
-
-
-    <!-- =========================
-     再生ルール
-========================= -->
-
-<div class="menu-section">
-
-  <a
-    class="menu-main-button"
-    href="rule.html"
-    style="text-decoration: none;">
-
-    <span class="menu-main-left">
-      再生ルール
-    </span>
-
-    <span style="font-size: 18px;">
-      ↗
-    </span>
-
-  </a>
-
-</div>
-
-
-<!-- =========================
-     使い方
-========================= -->
-
-<div class="menu-section">
-
-  <a
-    class="menu-main-button"
-    href="howto.html"
-    style="text-decoration: none;">
-
-    <span class="menu-main-left">
-      使い方
-    </span>
-
-    <span style="font-size: 18px;">
-      ↗
-    </span>
-
-  </a>
-
-</div>
-
-
-<!-- =========================
-     アップデート情報
-========================= -->
-
-<div class="menu-section">
-
-  <a
-    class="menu-main-button"
-    href="updates.html"
-    style="text-decoration: none;">
-
-    <span class="menu-main-left">
-      アップデート情報
-    </span>
-
-    <span style="font-size: 18px;">
-      ↗
-    </span>
-
-  </a>
-
-</div>
-
-    /* =========================
-       関連サイト
-    ========================= */
-
-    .menu-link {
-      display: block;
-
-      padding: 11px 10px;
-
-      border: 1px solid #dddddd;
-      border-radius: 8px;
-
-      margin-bottom: 7px;
-
-      background: #ffffff;
-
-      font-size: 14px;
-    }
-
-    .menu-link:last-child {
-      margin-bottom: 0;
     }
 
 
@@ -467,12 +459,14 @@
 
     .jump-tabs {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
 
       gap: 6px;
 
       margin-bottom: 22px;
     }
+
 
     .jump-tab {
       min-height: 48px;
@@ -485,6 +479,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       gap: 5px;
 
       font-size: 12px;
@@ -493,10 +488,12 @@
       cursor: pointer;
     }
 
+
     .jump-tab:hover {
       background: #111111;
       color: #ffffff;
     }
+
 
     .jump-mark {
       font-size: 17px;
@@ -512,9 +509,11 @@
       margin-bottom: 26px;
     }
 
+
     .section-title {
       display: flex;
       align-items: center;
+
       gap: 8px;
 
       margin: 0 0 12px;
@@ -522,6 +521,7 @@
       font-size: 20px;
       font-weight: 700;
     }
+
 
     .section-title::before {
       content: "";
@@ -531,6 +531,7 @@
 
       border-top: 9px solid transparent;
       border-bottom: 9px solid transparent;
+
       border-left: 14px solid #c40000;
     }
 
@@ -541,6 +542,7 @@
 
     .main-video-card {
       border: 3px solid #111111;
+
       border-radius: 14px;
 
       overflow: hidden;
@@ -548,10 +550,12 @@
       background: #ffffff;
     }
 
+
     .video-area {
       position: relative;
 
       width: 100%;
+
       aspect-ratio: 16 / 9;
 
       background: #eeeeee;
@@ -566,6 +570,7 @@
       font-weight: 700;
     }
 
+
     .video-area::after {
       content: "▶";
 
@@ -577,6 +582,7 @@
       border-radius: 50%;
 
       background: #c40000;
+
       color: #ffffff;
 
       display: flex;
@@ -588,14 +594,17 @@
       padding-left: 4px;
     }
 
+
     .video-info {
       padding: 14px;
     }
+
 
     .video-label {
       display: inline-block;
 
       background: #c40000;
+
       color: #ffffff;
 
       padding: 3px 10px;
@@ -608,22 +617,28 @@
       margin-bottom: 7px;
     }
 
+
     .video-title {
       margin: 0 0 13px;
 
       font-size: 17px;
+
       font-weight: 700;
     }
 
+
     .stats-grid {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
 
       gap: 9px;
     }
 
+
     .stat-box {
       border: 2px solid #111111;
+
       border-radius: 10px;
 
       padding: 9px;
@@ -631,15 +646,20 @@
       text-align: center;
     }
 
+
     .stat-label {
       font-size: 12px;
+
       color: #555555;
     }
 
+
     .stat-number {
       font-size: 24px;
+
       font-weight: 700;
     }
+
 
     .difference {
       margin-top: 9px;
@@ -653,8 +673,10 @@
       text-align: center;
 
       font-size: 13px;
+
       font-weight: 700;
     }
+
 
     .difference strong {
       color: #c40000;
@@ -669,24 +691,30 @@
       margin-top: 11px;
 
       border: 2px solid #c40000;
+
       border-radius: 11px;
 
       padding: 12px;
     }
 
+
     .goal-card-title {
       color: #c40000;
 
       font-size: 12px;
+
       font-weight: 700;
     }
 
+
     .goal-main {
       font-size: 20px;
+
       font-weight: 700;
 
       margin: 2px 0;
     }
+
 
     .goal-progress {
       height: 8px;
@@ -700,8 +728,10 @@
       margin-top: 7px;
     }
 
+
     .goal-progress-inner {
       width: 35%;
+
       height: 100%;
 
       background: #c40000;
@@ -714,6 +744,7 @@
 
     .playlist-block {
       border: 2px solid #c40000;
+
       border-radius: 12px;
 
       padding: 13px;
@@ -721,49 +752,89 @@
       margin-bottom: 13px;
     }
 
+
+    .playlist-title-row {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 8px;
+
+      margin-bottom: 8px;
+    }
+
+
     .playlist-heading {
-      margin: 0 0 11px;
+      margin: 0;
 
       font-size: 18px;
+
       font-weight: 700;
     }
 
-    .playlist-description-row {
-      display: flex;
-      align-items: stretch;
 
-      gap: 9px;
-    }
+    .playlist-rule-button {
+      display: inline-block;
 
-    .playlist-description {
-      flex: 1;
+      border: 2px solid #111111;
 
-      min-height: 100px;
+      background: #ffffff;
 
-      border: 1px dashed #999999;
+      color: #111111;
+
       border-radius: 8px;
 
-      padding: 10px;
+      padding: 7px 9px;
 
-      color: #999999;
+      font-size: 11px;
+
+      font-weight: 700;
+
+      white-space: nowrap;
+    }
+
+
+    .playlist-rule-button:hover {
+      background: #111111;
+
+      color: #ffffff;
+    }
+
+
+    .playlist-time {
+      margin-bottom: 10px;
+
+      padding: 7px 9px;
+
+      border-radius: 8px;
+
+      background: #f5f5f5;
 
       font-size: 12px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
+      color: #555555;
     }
+
+
+    .playlist-time strong {
+      margin-left: 5px;
+
+      color: #111111;
+
+      font-size: 16px;
+    }
+
 
     .playlist-buttons {
-      width: 60px;
-
       display: grid;
-      grid-template-columns: 1fr;
 
-      gap: 5px;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 6px;
     }
+
 
     .playlist-button {
       border: 2px solid #111111;
@@ -772,16 +843,19 @@
 
       border-radius: 8px;
 
-      min-height: 36px;
+      min-height: 40px;
 
       font-size: 15px;
+
       font-weight: 700;
 
       cursor: pointer;
     }
 
+
     .playlist-button:hover {
       background: #111111;
+
       color: #ffffff;
     }
 
@@ -792,14 +866,18 @@
 
     .chart-card {
       border: 2px solid #111111;
+
       border-radius: 12px;
 
       padding: 13px;
     }
 
+
     .chart-header {
       display: flex;
+
       align-items: flex-start;
+
       justify-content: space-between;
 
       gap: 8px;
@@ -807,16 +885,19 @@
       margin-bottom: 10px;
     }
 
+
     .chart-header h3 {
       margin: 0;
 
       font-size: 17px;
     }
 
+
     .long-view-button {
       border: 2px solid #c40000;
 
       background: #ffffff;
+
       color: #c40000;
 
       border-radius: 8px;
@@ -824,6 +905,7 @@
       padding: 7px 8px;
 
       font-size: 11px;
+
       font-weight: 700;
 
       white-space: nowrap;
@@ -831,9 +913,11 @@
       cursor: pointer;
     }
 
+
     .chart-wrapper {
       overflow-x: auto;
     }
+
 
     .chart {
       min-width: 650px;
@@ -843,6 +927,7 @@
       position: relative;
 
       border-left: 2px solid #111111;
+
       border-bottom: 2px solid #111111;
 
       margin: 10px 12px 28px 60px;
@@ -856,17 +941,22 @@
         );
     }
 
+
     .y-axis {
       position: absolute;
 
       left: -55px;
+
       top: -5px;
+
       bottom: 0;
 
       width: 50px;
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: space-between;
 
       text-align: right;
@@ -876,30 +966,38 @@
       color: #555555;
     }
 
+
     .line {
       position: absolute;
 
       left: 0;
+
       top: 0;
 
       width: 100%;
+
       height: 100%;
     }
 
+
     .chart-labels {
       display: grid;
+
       grid-template-columns: repeat(7, 1fr);
 
       position: absolute;
 
       left: 0;
+
       right: 0;
+
       bottom: -27px;
 
       font-size: 11px;
 
       text-align: center;
     }
+
 
     .chart-legend {
       display: grid;
@@ -909,14 +1007,17 @@
       margin-top: 34px;
     }
 
+
     .legend-item {
       display: flex;
+
       align-items: center;
 
       gap: 7px;
 
       font-size: 12px;
     }
+
 
     .legend-check {
       width: 18px;
@@ -925,9 +1026,11 @@
       accent-color: #c40000;
     }
 
+
     .legend-name {
       flex: 1;
     }
+
 
     .legend-value {
       color: #555555;
@@ -942,10 +1045,12 @@
 
     .search-card {
       border: 2px solid #111111;
+
       border-radius: 12px;
 
       padding: 13px;
     }
+
 
     .search-card h3 {
       margin: 0 0 12px;
@@ -953,27 +1058,33 @@
       font-size: 17px;
     }
 
+
     .search-grid {
       display: grid;
 
       gap: 9px;
     }
 
+
     .search-label {
       display: block;
 
       font-size: 11px;
+
       font-weight: 700;
 
       margin-bottom: 3px;
     }
 
+
     .search-input,
     .search-select {
       width: 100%;
+
       height: 43px;
 
       border: 2px solid #111111;
+
       border-radius: 8px;
 
       background: #ffffff;
@@ -983,6 +1094,7 @@
       font-size: 13px;
     }
 
+
     .search-result {
       margin-top: 12px;
 
@@ -991,13 +1103,16 @@
       padding-top: 9px;
     }
 
+
     .result-item {
       display: flex;
+
       align-items: center;
 
       gap: 7px;
 
       border: 1px solid #dddddd;
+
       border-radius: 8px;
 
       padding: 8px;
@@ -1007,12 +1122,14 @@
       font-size: 12px;
     }
 
+
     .add-chart-button {
       margin-left: auto;
 
       border: 2px solid #c40000;
 
       color: #c40000;
+
       background: #ffffff;
 
       border-radius: 7px;
@@ -1020,6 +1137,7 @@
       padding: 5px 7px;
 
       font-size: 10px;
+
       font-weight: 700;
 
       white-space: nowrap;
@@ -1045,6 +1163,13 @@
     }
 
 
+    .footer a {
+      color: #c40000;
+
+      font-weight: 700;
+    }
+
+
     /* =========================
        TOPボタン
     ========================= */
@@ -1053,9 +1178,11 @@
       position: fixed;
 
       right: 13px;
+
       bottom: 15px;
 
       width: 47px;
+
       height: 47px;
 
       border-radius: 50%;
@@ -1065,6 +1192,7 @@
       background: #ffffff;
 
       font-size: 19px;
+
       font-weight: 700;
 
       cursor: pointer;
@@ -1083,38 +1211,64 @@
         font-size: 19px;
       }
 
+
       .jump-tab {
         min-height: 45px;
 
         font-size: 10px;
       }
 
+
       .jump-mark {
         font-size: 15px;
       }
+
 
       .video-title {
         font-size: 16px;
       }
 
+
       .goal-main {
         font-size: 18px;
       }
 
-      .playlist-description {
-        min-height: 105px;
+
+      .playlist-title-row {
+        align-items: flex-start;
       }
+
+
+      .playlist-heading {
+        font-size: 17px;
+      }
+
+
+      .playlist-rule-button {
+        font-size: 10px;
+
+        padding: 6px 7px;
+      }
+
+
+      .playlist-buttons {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
 
       .chart-header {
         flex-direction: column;
       }
 
+
       .long-view-button {
         align-self: flex-end;
       }
+
     }
 
   </style>
+
 </head>
 
 
@@ -1130,6 +1284,7 @@
     <div class="site-title">
       YouTubeファンサイト
     </div>
+
 
     <button
       class="menu-button"
@@ -1147,7 +1302,7 @@
 
 
   <!-- =========================
-       メニュー
+       メニュー背景
   ========================= -->
 
   <div
@@ -1157,6 +1312,10 @@
   </div>
 
 
+  <!-- =========================
+       サイドメニュー
+  ========================= -->
+
   <aside
     class="side-menu"
     id="sideMenu">
@@ -1164,7 +1323,10 @@
 
     <div class="menu-header">
 
-      <h2>MENU</h2>
+      <h2>
+        MENU
+      </h2>
+
 
       <button
         class="menu-close"
@@ -1204,46 +1366,64 @@
         class="menu-content"
         id="relatedContent">
 
+
         <a
           class="menu-link"
           href="#"
           onclick="return false;">
+
           ▶ ジュニア公式 YouTube
+
         </a>
+
 
         <a
           class="menu-link"
           href="#"
           onclick="return false;">
+
           ▶ Short再生数サイト
+
         </a>
+
 
         <a
           class="menu-link"
           href="#"
           onclick="return false;">
+
           ▶ TikTok共有サイト
+
         </a>
+
 
         <a
           class="menu-link"
           href="#"
           onclick="return false;">
+
           𝕏 X
+
         </a>
+
 
         <a
           class="menu-link"
           href="#"
           onclick="return false;">
+
           TimeTree
+
         </a>
+
 
         <a
           class="menu-link"
           href="#"
           onclick="return false;">
+
           Lit.Link
+
         </a>
 
       </div>
@@ -1283,13 +1463,18 @@
           <button
             type="button"
             onclick="setAllNotifications(true)">
+
             すべてON
+
           </button>
+
 
           <button
             type="button"
             onclick="setAllNotifications(false)">
+
             すべてOFF
+
           </button>
 
         </div>
@@ -1358,8 +1543,11 @@
           class="goal-settings"
           id="goalSettings">
 
+
           <div class="goal-title">
+
             通知したい目標を選択
+
           </div>
 
 
@@ -1485,7 +1673,10 @@
 
 
         <p class="notification-note">
-          ※現在は見た目のみ。実際のプッシュ通知機能は後から接続します。
+
+          ※現在は見た目のみ。
+          実際のプッシュ通知機能は後から接続します。
+
         </p>
 
       </div>
@@ -1499,123 +1690,71 @@
 
     <div class="menu-section">
 
-      <button
+      <a
         class="menu-main-button"
-        type="button"
-        onclick="toggleMenuSection('ruleContent', this)">
+        href="rule.html"
+        style="text-decoration: none;">
 
         <span class="menu-main-left">
           再生ルール
         </span>
 
-        <span class="menu-chevron">
-          ⌄
+        <span style="font-size: 18px;">
+          ↗
         </span>
 
-      </button>
-
-
-      <div
-        class="menu-content"
-        id="ruleContent">
-
-
-        <!-- 共通 -->
-
-        <div class="rule-menu-item">
-
-          <button
-            class="rule-menu-button"
-            type="button"
-            onclick="toggleRule('commonRule', this)">
-
-            <span>
-              共通
-            </span>
-
-            <span class="menu-chevron">
-              ⌄
-            </span>
-
-          </button>
-
-
-          <div
-            class="rule-detail"
-            id="commonRule">
-
-            ここに共通の再生ルールを掲載します。
-
-          </div>
-
-        </div>
-
-
-        <!-- プレミアム -->
-
-        <div class="rule-menu-item">
-
-          <button
-            class="rule-menu-button"
-            type="button"
-            onclick="toggleRule('premiumRule', this)">
-
-            <span>
-              プレミアム
-            </span>
-
-            <span class="menu-chevron">
-              ⌄
-            </span>
-
-          </button>
-
-
-          <div
-            class="rule-detail"
-            id="premiumRule">
-
-            ここにプレミアム用の再生ルールを掲載します。
-
-          </div>
-
-        </div>
-
-
-        <!-- 一般 -->
-
-        <div class="rule-menu-item">
-
-          <button
-            class="rule-menu-button"
-            type="button"
-            onclick="toggleRule('generalRule', this)">
-
-            <span>
-              一般
-            </span>
-
-            <span class="menu-chevron">
-              ⌄
-            </span>
-
-          </button>
-
-
-          <div
-            class="rule-detail"
-            id="generalRule">
-
-            ここに一般用の再生ルールを掲載します。
-
-          </div>
-
-        </div>
-
-
-      </div>
+      </a>
 
     </div>
+
+
+    <!-- =========================
+         使い方
+    ========================= -->
+
+    <div class="menu-section">
+
+      <a
+        class="menu-main-button"
+        href="howto.html"
+        style="text-decoration: none;">
+
+        <span class="menu-main-left">
+          使い方
+        </span>
+
+        <span style="font-size: 18px;">
+          ↗
+        </span>
+
+      </a>
+
+    </div>
+
+
+    <!-- =========================
+         アップデート情報
+    ========================= -->
+
+    <div class="menu-section">
+
+      <a
+        class="menu-main-button"
+        href="updates.html"
+        style="text-decoration: none;">
+
+        <span class="menu-main-left">
+          アップデート情報
+        </span>
+
+        <span style="font-size: 18px;">
+          ↗
+        </span>
+
+      </a>
+
+    </div>
+
 
   </aside>
 
@@ -1632,6 +1771,7 @@
     ========================= -->
 
     <nav class="jump-tabs">
+
 
       <button
         class="jump-tab"
@@ -1699,7 +1839,9 @@
           onclick="return false;">
 
           <div class="video-area">
+
             サムネイル
+
           </div>
 
         </a>
@@ -1714,7 +1856,9 @@
 
 
           <h3 class="video-title">
+
             今週の動画タイトルがここに入ります
+
           </h3>
 
 
@@ -1726,6 +1870,7 @@
               <div class="stat-label">
                 再生数
               </div>
+
 
               <div
                 class="stat-number"
@@ -1744,8 +1889,11 @@
                 高評価
               </div>
 
+
               <div class="stat-number">
+
                 1,064
+
               </div>
 
             </div>
@@ -1771,9 +1919,11 @@
               次の目標
             </div>
 
+
             <div class="goal-main">
               10万回まであと64,721回
             </div>
+
 
             <div class="goal-progress">
 
@@ -1788,6 +1938,7 @@
         </div>
 
       </div>
+
 
     </section>
 
@@ -1810,37 +1961,74 @@
 
       <div class="playlist-block">
 
-        <h3 class="playlist-heading">
-          プレミアム用
-        </h3>
+
+        <div class="playlist-title-row">
+
+          <h3 class="playlist-heading">
+            プレミアム用
+          </h3>
 
 
-        <div class="playlist-description-row">
+          <a
+            class="playlist-rule-button"
+            href="rule.html">
 
-          <div class="playlist-description">
-            説明書きスペース
-          </div>
+            再生ルールを見る ↗
+
+          </a>
+
+        </div>
 
 
-          <div class="playlist-buttons">
+        <div class="playlist-time">
 
-            <button class="playlist-button">
-              ①
-            </button>
+          合計時間
 
-            <button class="playlist-button">
-              ②
-            </button>
+          <strong>
+            0:00:00
+          </strong>
 
-            <button class="playlist-button">
-              ③
-            </button>
+        </div>
 
-            <button class="playlist-button">
-              ④
-            </button>
 
-          </div>
+        <div class="playlist-buttons">
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ①
+
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ②
+
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ③
+
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ④
+
+          </button>
+
 
         </div>
 
@@ -1851,57 +2039,115 @@
 
       <div class="playlist-block">
 
-        <h3 class="playlist-heading">
-          一般用
-        </h3>
+
+        <div class="playlist-title-row">
+
+          <h3 class="playlist-heading">
+            一般用
+          </h3>
 
 
-        <div class="playlist-description-row">
+          <a
+            class="playlist-rule-button"
+            href="rule.html">
 
-          <div class="playlist-description">
-            説明書きスペース
-          </div>
+            再生ルールを見る ↗
+
+          </a>
+
+        </div>
 
 
-          <div class="playlist-buttons">
+        <div class="playlist-time">
 
-            <button class="playlist-button">
-              ①
-            </button>
+          合計時間
 
-            <button class="playlist-button">
-              ②
-            </button>
+          <strong>
+            0:00:00
+          </strong>
 
-            <button class="playlist-button">
-              ③
-            </button>
+        </div>
 
-            <button class="playlist-button">
-              ④
-            </button>
 
-            <button class="playlist-button">
-              ⑤
-            </button>
+        <div class="playlist-buttons">
 
-            <button class="playlist-button">
-              ⑥
-            </button>
 
-            <button class="playlist-button">
-              ⑦
-            </button>
+          <button
+            class="playlist-button"
+            type="button">
 
-            <button class="playlist-button">
-              ⑧
-            </button>
+            ①
 
-          </div>
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ②
+
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ③
+
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ④
+
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ⑤
+
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ⑥
+
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ⑦
+
+          </button>
+
+
+          <button
+            class="playlist-button"
+            type="button">
+
+            ⑧
+
+          </button>
+
 
         </div>
 
       </div>
+
 
     </section>
 
@@ -1925,6 +2171,7 @@
 
         <div class="chart-header">
 
+
           <h3>
             Music｜直近6本
           </h3>
@@ -1937,6 +2184,7 @@
             2か月間のデータを見る
 
           </button>
+
 
         </div>
 
@@ -2105,6 +2353,7 @@
 
       </div>
 
+
     </section>
 
 
@@ -2205,6 +2454,7 @@
               🎵 2026年 Music｜過去動画タイトル①
             </span>
 
+
             <button
               class="add-chart-button"
               type="button">
@@ -2222,6 +2472,7 @@
               🎵 2026年 Music｜過去動画タイトル②
             </span>
 
+
             <button
               class="add-chart-button"
               type="button">
@@ -2237,6 +2488,7 @@
 
       </div>
 
+
     </section>
 
 
@@ -2249,17 +2501,18 @@
 
   <footer class="footer">
 
-  作成者
-  <a
-    href="https://x.com/mtkwk_info1126"
-    target="_blank"
-    rel="noopener noreferrer">
+    作成者
 
-    @mtkwk_info1126
+    <a
+      href="https://x.com/mtkwk_info1126"
+      target="_blank"
+      rel="noopener noreferrer">
 
-  </a>
+      @mtkwk_info1126
 
-</footer>
+    </a>
+
+  </footer>
 
 
   <!-- =========================
@@ -2290,9 +2543,11 @@
         .getElementById("sideMenu")
         .classList.add("active");
 
+
       document
         .getElementById("menuOverlay")
         .classList.add("active");
+
 
       document.body.style.overflow = "hidden";
 
@@ -2309,9 +2564,11 @@
         .getElementById("sideMenu")
         .classList.remove("active");
 
+
       document
         .getElementById("menuOverlay")
         .classList.remove("active");
+
 
       document.body.style.overflow = "";
 
@@ -2327,23 +2584,9 @@
       const content =
         document.getElementById(id);
 
+
       content.classList.toggle("open");
 
-      button.classList.toggle("open");
-
-    }
-
-
-    /* =========================
-       再生ルールの開閉
-    ========================= */
-
-    function toggleRule(id, button) {
-
-      const detail =
-        document.getElementById(id);
-
-      detail.classList.toggle("open");
 
       button.classList.toggle("open");
 
@@ -2361,11 +2604,13 @@
           ".notification-check"
         );
 
+
       checks.forEach(function(check) {
 
         check.checked = value;
 
       });
+
 
       if (!value) {
 
@@ -2387,8 +2632,10 @@
       const goalCheck =
         document.getElementById("notifyGoal");
 
+
       const goalSettings =
         document.getElementById("goalSettings");
+
 
       if (goalCheck.checked) {
 
@@ -2412,9 +2659,12 @@
       const target =
         document.getElementById(id);
 
+
       if (!target) return;
 
+
       closeMenu();
+
 
       target.scrollIntoView({
         behavior: "smooth",
@@ -2437,11 +2687,13 @@
       const change =
         Math.floor(Math.random() * 3);
 
+
       if (change > 0) {
 
         currentViews += change;
 
       }
+
 
       document
         .getElementById("viewCount")
@@ -2461,4 +2713,5 @@
 
 
 </body>
+
 </html>
