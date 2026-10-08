@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>再生ルール｜YouTubeファンサイト</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111111;
+      font-family: "Meiryo UI", "メイリオ", Meiryo, sans-serif;
+      line-height: 1.7;
+    }
+
+    .header {
+      border-bottom: 3px solid #111111;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .back-button {
+      border: 2px solid #111111;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 24px, 800px);
+      margin: 0 auto;
+      padding: 22px 0 60px;
+    }
+
+    .page-title {
+      margin: 0 0 22px;
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    .rule-section {
+      border: 2px solid #111111;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .rule-heading {
+      margin: 0;
+      padding: 13px 14px;
+      background: #c40000;
+      color: #ffffff;
+      font-size: 19px;
+    }
+
+    .rule-body {
+      padding: 15px;
+      min-height: 120px;
+    }
+
+    .rule-body p {
+      margin: 0 0 10px;
+    }
+
+    .rule-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .placeholder {
+      color: #999999;
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    .footer {
+      border-top: 2px solid #111111;
+      padding: 20px 12px;
+      text-align: center;
+      font-size: 12px;
+      color: #555555;
+    }
+
+    @media (max-width: 520px) {
+      .title {
+        font-size: 18px;
+      }
+
+      .page-title {
+        font-size: 22px;
+      }
+
+      .rule-heading {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+
+    <div class="title">
+      YouTubeファンサイト
+    </div>
+
+    <a
+      class="back-button"
+      href="index.html">
+
+      ← 戻る
+
+    </a>
+
+  </header>
+
+
+  <main class="container">
+
+    <h1 class="page-title">
+      再生ルール
+    </h1>
+
+
+    <!-- 共通 -->
+
+    <section class="rule-section">
+
+      <h2 class="rule-heading">
+        共通
+      </h2>
+
+      <div class="rule-body">
+
+        <div class="placeholder">
+          ここに共通の再生ルールを掲載します。
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- プレミアム -->
+
+    <section class="rule-section">
+
+      <h2 class="rule-heading">
+        プレミアム
+      </h2>
+
+      <div class="rule-body">
+
+        <div class="placeholder">
+          ここにプレミアム用の再生ルールを掲載します。
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 一般 -->
+
+    <section class="rule-section">
+
+      <h2 class="rule-heading">
+        一般
+      </h2>
+
+      <div class="rule-body">
+
+        <div class="placeholder">
+          ここに一般用の再生ルールを掲載します。
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+
+    YouTubeファンサイト
+
+  </footer>
+
+</body>
+</html>
